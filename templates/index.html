@@ -97,7 +97,7 @@
           <div class="col-lg-4 col-md-6">
             <div class="gallery-item">
               <a href="{{ url_for('static', filename='img/' + imagen.imagen) }}" class="glightbox" data-gallery="images-gallery">
-                <img src="{{ url_for('static', filename='img/' + imagen.imagen) }}" alt="{{ imagen.alt }}" class="img-fluid" onerror="this.src='{{ url_for('static', filename='img/gallery/gallery-1.jpg') }}'">
+                <img src="{{ url_for('static', filename='img/' + imagen.imagen) }}" alt="{{ imagen.alt }}" class="img-fluid" onerror="this.src='/static/img/gallery/gallery-1.jpg'">
               </a>
             </div>
           </div>

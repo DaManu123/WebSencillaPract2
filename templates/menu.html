@@ -61,7 +61,7 @@
           {% for item in data.menu %}
           <div class="col-lg-4 menu-item">
             <a href="{{ url_for('static', filename='img/' + item.imagen) }}" class="glightbox">
-              <img src="{{ url_for('static', filename='img/' + item.imagen) }}" class="menu-img img-fluid" alt="{{ item.nombre }}" onerror="this.src='{{ url_for('static', filename='img/menu/lobster-bisque.jpg') }}'">
+              <img src="{{ url_for('static', filename='img/' + item.imagen) }}" class="menu-img img-fluid" alt="{{ item.nombre }}" onerror="this.src='/static/img/menu/lobster-bisque.jpg'">
             </a>
             <h4>{{ item.nombre }}</h4>
             <p class="ingredients">
