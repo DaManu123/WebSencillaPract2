@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block title %}Menú - {{ data.titulo }}{% endblock %}
+
+{% block content %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">{{ data.titulo }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/menu">Ver Menú</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacto">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/reservaciones">Reservaciones</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Menú -->
+<div class="container my-5">
+    <h1 class="text-center mb-5">Nuestro Menú</h1>
+    <div class="row">
+        {% for item in data.menu %}
+        <div class="col-md-6 col-lg-3 mb-4">
+            <div class="card h-100">
+                <img src="{{ url_for('static', filename='img/' + item.imagen) }}" 
+                     class="card-img-top" 
+                     alt="{{ item.nombre }}"
+                     onerror="this.src='https://via.placeholder.com/300x200?text={{ item.nombre }}'">
+                <div class="card-body">
+                    <h5 class="card-title">{{ item.nombre }}</h5>
+                    <p class="card-text">{{ item.descripcion }}</p>
+                    <p class="card-text"><strong>${{ "%.2f"|format(item.precio) }}</strong></p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary w-100">Ordenar</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>{{ data.titulo }}</h5>
+                <p>{{ data.contacto.direccion }}</p>
+                <p>{{ data.contacto.telefono }}</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h5>Síguenos</h5>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                    <a href="{{ data.redes_sociales.facebook }}" class="text-white" target="_blank">Facebook</a>
+                    <a href="{{ data.redes_sociales.instagram }}" class="text-white" target="_blank">Instagram</a>
+                    <a href="{{ data.redes_sociales.twitter }}" class="text-white" target="_blank">Twitter</a>
+                </div>
+            </div>
+            <div class="col-md-4 text-end">
+                <h5>Horario</h5>
+                <p>{{ data.contacto.horario }}</p>
+            </div>
+        </div>
+        <hr class="bg-white">
+        <div class="text-center">
+            <p class="mb-0">&copy; 2026 {{ data.titulo }}. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+{% endblock %}

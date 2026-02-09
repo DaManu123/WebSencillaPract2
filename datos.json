@@ -1,0 +1,55 @@
+{
+  "titulo": "Cafetería El Buen Sabor",
+  "descripcion": "Los mejores cafés y postres de la ciudad",
+  "galeria": [
+    {
+      "imagen": "restaurante-interior.jpg",
+      "alt": "Interior del restaurante"
+    },
+    {
+      "imagen": "restaurante-terraza.jpg",
+      "alt": "Terraza del restaurante"
+    },
+    {
+      "imagen": "restaurante-cocina.jpg",
+      "alt": "Nuestra cocina"
+    }
+  ],
+  "contacto": {
+    "direccion": "Av. Juárez #123, Col. Centro, Ciudad de México",
+    "telefono": "55-1234-5678",
+    "email": "contacto@elbuensabor.com",
+    "horario": "Lunes a Domingo de 8:00 AM a 10:00 PM"
+  },
+  "redes_sociales": {
+    "facebook": "https://facebook.com/elbuensabor",
+    "instagram": "https://instagram.com/elbuensabor",
+    "twitter": "https://twitter.com/elbuensabor"
+  },
+  "menu": [
+    {
+      "nombre": "Café Americano",
+      "descripcion": "Café negro recién hecho",
+      "precio": 35.00,
+      "imagen": "cafe-americano.jpg"
+    },
+    {
+      "nombre": "Cappuccino",
+      "descripcion": "Espresso con leche espumada",
+      "precio": 45.00,
+      "imagen": "cappuccino.jpg"
+    },
+    {
+      "nombre": "Pastel de Chocolate",
+      "descripcion": "Delicioso pastel con cobertura de chocolate",
+      "precio": 55.00,
+      "imagen": "pastel-chocolate.jpg"
+    },
+    {
+      "nombre": "Croissant",
+      "descripcion": "Croissant francés recién horneado",
+      "precio": 30.00,
+      "imagen": "croissant.jpg"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Contacto - {{ data.titulo }}{% endblock %}
+
+{% block content %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">{{ data.titulo }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/menu">Ver Menú</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/contacto">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/reservaciones">Reservaciones</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Contacto -->
+<div class="container my-5">
+    <h1 class="text-center mb-5">Contacto</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h4>Dirección</h4>
+            <p>{{ data.contacto.direccion }}</p>
+            
+            <h4>Teléfono</h4>
+            <p>{{ data.contacto.telefono }}</p>
+            
+            <h4>Email</h4>
+            <p>{{ data.contacto.email }}</p>
+            
+            <h4>Horario</h4>
+            <p>{{ data.contacto.horario }}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>{{ data.titulo }}</h5>
+                <p>{{ data.contacto.direccion }}</p>
+                <p>{{ data.contacto.telefono }}</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h5>Síguenos</h5>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                    <a href="{{ data.redes_sociales.facebook }}" class="text-white" target="_blank">Facebook</a>
+                    <a href="{{ data.redes_sociales.instagram }}" class="text-white" target="_blank">Instagram</a>
+                    <a href="{{ data.redes_sociales.twitter }}" class="text-white" target="_blank">Twitter</a>
+                </div>
+            </div>
+            <div class="col-md-4 text-end">
+                <h5>Horario</h5>
+                <p>{{ data.contacto.horario }}</p>
+            </div>
+        </div>
+        <hr class="bg-white">
+        <div class="text-center">
+            <p class="mb-0">&copy; 2026 {{ data.titulo }}. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+{% endblock %}

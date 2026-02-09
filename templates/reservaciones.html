@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}Reservaciones - {{ data.titulo }}{% endblock %}
+
+{% block content %}
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">{{ data.titulo }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/menu">Ver Menú</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/contacto">Contacto</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/reservaciones">Reservaciones</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Reservaciones -->
+<div class="container my-5">
+    <h1 class="text-center mb-5">Reservaciones</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label">Nombre completo</label>
+                            <input type="text" class="form-control" id="nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telefono" class="form-label">Teléfono</label>
+                            <input type="tel" class="form-control" id="telefono" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fecha" class="form-label">Fecha</label>
+                            <input type="date" class="form-control" id="fecha" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="hora" class="form-label">Hora</label>
+                            <input type="time" class="form-control" id="hora" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="personas" class="form-label">Número de personas</label>
+                            <input type="number" class="form-control" id="personas" min="1" max="20" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Reservar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <h5>{{ data.titulo }}</h5>
+                <p>{{ data.contacto.direccion }}</p>
+                <p>{{ data.contacto.telefono }}</p>
+            </div>
+            <div class="col-md-4 text-center">
+                <h5>Síguenos</h5>
+                <div class="d-flex justify-content-center gap-3 mt-3">
+                    <a href="{{ data.redes_sociales.facebook }}" class="text-white" target="_blank">Facebook</a>
+                    <a href="{{ data.redes_sociales.instagram }}" class="text-white" target="_blank">Instagram</a>
+                    <a href="{{ data.redes_sociales.twitter }}" class="text-white" target="_blank">Twitter</a>
+                </div>
+            </div>
+            <div class="col-md-4 text-end">
+                <h5>Horario</h5>
+                <p>{{ data.contacto.horario }}</p>
+            </div>
+        </div>
+        <hr class="bg-white">
+        <div class="text-center">
+            <p class="mb-0">&copy; 2026 {{ data.titulo }}. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+{% endblock %}
