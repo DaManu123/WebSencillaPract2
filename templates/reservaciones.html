@@ -3,98 +3,147 @@
 {% block title %}Reservaciones - {{ data.titulo }}{% endblock %}
 
 {% block content %}
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">{{ data.titulo }}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/menu">Ver Menú</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contacto">Contacto</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="/reservaciones">Reservaciones</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+<body class="index-page">
 
-<!-- Reservaciones -->
-<div class="container my-5">
-    <h1 class="text-center mb-5">Reservaciones</h1>
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card shadow">
-                <div class="card-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre completo</label>
-                            <input type="text" class="form-control" id="nombre" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="telefono" class="form-label">Teléfono</label>
-                            <input type="tel" class="form-control" id="telefono" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="fecha" class="form-label">Fecha</label>
-                            <input type="date" class="form-control" id="fecha" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="hora" class="form-label">Hora</label>
-                            <input type="time" class="form-control" id="hora" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="personas" class="form-label">Número de personas</label>
-                            <input type="number" class="form-control" id="personas" min="1" max="20" required>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100">Reservar</button>
-                    </form>
-                </div>
-            </div>
+  <header id="header" class="header fixed-top">
+    <div class="topbar d-flex align-items-center">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="contact-info d-flex align-items-center">
+          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:{{ data.contacto.email }}">{{ data.contacto.email }}</a></i>
+          <i class="bi bi-phone d-flex align-items-center ms-4"><span>{{ data.contacto.telefono }}</span></i>
         </div>
+        <div class="languages d-none d-md-flex align-items-center">
+          <ul>
+            <li>Es</li>
+          </ul>
+        </div>
+      </div>
     </div>
-</div>
 
-<!-- Footer -->
-<footer class="bg-dark text-white py-4 mt-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h5>{{ data.titulo }}</h5>
-                <p>{{ data.contacto.direccion }}</p>
-                <p>{{ data.contacto.telefono }}</p>
-            </div>
-            <div class="col-md-4 text-center">
-                <h5>Síguenos</h5>
-                <div class="d-flex justify-content-center gap-3 mt-3">
-                    <a href="{{ data.redes_sociales.facebook }}" class="text-white" target="_blank">Facebook</a>
-                    <a href="{{ data.redes_sociales.instagram }}" class="text-white" target="_blank">Instagram</a>
-                    <a href="{{ data.redes_sociales.twitter }}" class="text-white" target="_blank">Twitter</a>
-                </div>
-            </div>
-            <div class="col-md-4 text-end">
-                <h5>Horario</h5>
-                <p>{{ data.contacto.horario }}</p>
-            </div>
-        </div>
-        <hr class="bg-white">
-        <div class="text-center">
-            <p class="mb-0">&copy; 2026 {{ data.titulo }}. Todos los derechos reservados.</p>
-        </div>
+    <div class="branding d-flex align-items-cente">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <a href="/" class="logo d-flex align-items-center me-auto me-xl-0">
+          <h1 class="sitename">{{ data.titulo }}</h1>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/menu">Ver Menú</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <a class="btn-book-a-table d-none d-xl-block active" href="/reservaciones">Reservar Mesa</a>
+      </div>
     </div>
-</footer>
+  </header>
+
+  <main class="main">
+    <div class="page-title">
+      <div class="container">
+        <h1>Reservaciones</h1>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="/">Inicio</a></li>
+            <li class="current">Reservaciones</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <section id="book-a-table" class="book-a-table section">
+      <div class="container">
+        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-8">
+            <form action="#" method="post" class="php-email-form">
+              <div class="row gy-4">
+                <div class="col-lg-6">
+                  <input type="text" name="name" class="form-control" id="name" placeholder="Tu Nombre" required="">
+                </div>
+                <div class="col-lg-6 ">
+                  <input type="email" class="form-control" name="email" id="email" placeholder="Tu Email" required="">
+                </div>
+                <div class="col-lg-6 ">
+                  <input type="text" class="form-control" name="phone" id="phone" placeholder="Tu Teléfono" required="">
+                </div>
+                <div class="col-lg-6">
+                  <input type="date" name="date" class="form-control" id="date" placeholder="Fecha" required="">
+                </div>
+                <div class="col-lg-6">
+                  <input type="time" class="form-control" name="time" id="time" placeholder="Hora" required="">
+                </div>
+                <div class="col-lg-6">
+                  <input type="number" class="form-control" name="people" id="people" placeholder="# de Personas" required="" min="1" max="20">
+                </div>
+              </div>
+
+              <div class="form-group mt-3">
+                <textarea class="form-control" name="message" rows="5" placeholder="Mensaje (opcional)"></textarea>
+              </div>
+
+              <div class="text-center mt-3">
+                <div class="loading">Cargando</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Tu reservación ha sido enviada. ¡Gracias!</div>
+                <button type="submit">Reservar Mesa</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer">
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="/" class="logo d-flex align-items-center">
+            <span class="sitename">{{ data.titulo }}</span>
+          </a>
+          <div class="footer-contact pt-3">
+            <p>{{ data.contacto.direccion }}</p>
+            <p class="mt-3"><strong>Teléfono:</strong> <span>{{ data.contacto.telefono }}</span></p>
+            <p><strong>Email:</strong> <span>{{ data.contacto.email }}</span></p>
+          </div>
+          <div class="social-links d-flex mt-4">
+            <a href="{{ data.redes_sociales.twitter }}"><i class="bi bi-twitter-x"></i></a>
+            <a href="{{ data.redes_sociales.facebook }}"><i class="bi bi-facebook"></i></a>
+            <a href="{{ data.redes_sociales.instagram }}"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Enlaces Útiles</h4>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/menu">Menú</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+            <li><a href="/reservaciones">Reservaciones</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+          <h4>Horario</h4>
+          <p>{{ data.contacto.horario }}</p>
+        </div>
+
+        <div class="col-lg-4 col-md-12 footer-newsletter">
+          <h4>Síguenos</h4>
+          <p>Mantente al día con nuestras promociones y novedades.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">{{ data.titulo }}</strong> <span>Todos los derechos reservados</span></p>
+    </div>
+  </footer>
+
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <div id="preloader"></div>
+
+</body>
 {% endblock %}

@@ -1,5 +1,4 @@
 from flask import Flask, render_template
-from flask_bootstrap import Bootstrap5
 import json
 from dotenv import load_dotenv
 
@@ -8,9 +7,6 @@ load_dotenv()
 
 # Inicializar Flask
 app = Flask(__name__)
-
-# Inicializar Bootstrap
-bootstrap = Bootstrap5(app)
 
 # Función para cargar datos del JSON
 def cargar_datos():
